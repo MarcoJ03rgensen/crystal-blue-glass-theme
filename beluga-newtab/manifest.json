@@ -1,0 +1,9 @@
+{
+  "manifest_version": 3,
+  "name": "Crystal Blue Glass — Beluga New Tab",
+  "version": "1.0.0",
+  "description": "New Tab page with a beluga whale swimming across a light-blue surface band.",
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  }
+}
