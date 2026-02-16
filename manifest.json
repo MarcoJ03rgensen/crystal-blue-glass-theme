@@ -10,29 +10,29 @@
       "theme_ntp_background": "ntp_background.png"
     },
     "colors": {
-      "frame": [15, 23, 42],
-      "frame_inactive": [10, 15, 30],
+      "frame": [5, 10, 20],
+      "frame_inactive": [3, 7, 15],
       
-      "toolbar": [255, 255, 255, 0.1], 
+      "toolbar": [15, 35, 65, 0.08],
       
-      "tab_text": [255, 255, 255],
-      "tab_background_text": [148, 163, 184],
+      "tab_text": [230, 240, 255],
+      "tab_background_text": [120, 140, 170],
       
-      "bookmark_text": [224, 242, 254],
+      "bookmark_text": [200, 220, 245],
       
-      "ntp_background": [15, 23, 42],
-      "ntp_text": [224, 242, 254],
+      "ntp_background": [8, 12, 22],
+      "ntp_text": [200, 220, 245],
       
-      "omnibox_background": [30, 41, 59], 
-      "omnibox_text": [255, 255, 255],
+      "omnibox_background": [12, 20, 35],
+      "omnibox_text": [230, 240, 255],
       
       "button_background": [0, 0, 0, 0]
     },
     "tints": {
-      "buttons": [0.6, 1.0, 1.0], 
+      "buttons": [0.55, 0.8, 0.9],
       "frame": [-1, -1, -1],
       "frame_inactive": [-1, -1, -1],
-      "background_tab": [-1, -1, 0.4]
+      "background_tab": [-1, -1, 0.3]
     },
     "properties": {
       "ntp_background_alignment": "center",
