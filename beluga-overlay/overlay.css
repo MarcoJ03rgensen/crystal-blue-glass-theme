@@ -1,0 +1,27 @@
+/* Beluga overlay container */
+#beluga-overlay-container {
+  position: fixed;
+  top: 6px;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  z-index: 2147483647;
+  pointer-events: none;
+}
+
+#beluga-overlay {
+  position: fixed;
+  top: 6px;
+  left: 0;
+  width: 200px;
+  opacity: 0.92;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.45));
+  pointer-events: none;
+  will-change: transform;
+}
+
+#beluga-overlay svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}

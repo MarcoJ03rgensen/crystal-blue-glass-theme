@@ -1,0 +1,43 @@
+name: Generate Beluga Icons
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'beluga-overlay/whale.svg'
+      - '.github/workflows/generate-beluga-icons.yml'
+  workflow_dispatch:
+
+jobs:
+  icons:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y librsvg2-bin
+
+      - name: Render PNG icons
+        run: |
+          mkdir -p beluga-overlay/icons
+          rsvg-convert -w 16  -h 16  beluga-overlay/whale.svg -o beluga-overlay/icons/icon16.png
+          rsvg-convert -w 48  -h 48  beluga-overlay/whale.svg -o beluga-overlay/icons/icon48.png
+          rsvg-convert -w 128 -h 128 beluga-overlay/whale.svg -o beluga-overlay/icons/icon128.png
+
+      - name: Commit icons
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add beluga-overlay/icons/icon16.png beluga-overlay/icons/icon48.png beluga-overlay/icons/icon128.png
+          if ! git diff --staged --quiet; then
+            git commit -m "Auto-generate beluga extension icons [skip ci]"
+            git push
+          else
+            echo "No icon changes to commit"
+          fi
