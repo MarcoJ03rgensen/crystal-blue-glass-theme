@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Crystal Blue Glass",
+  "description": "Deep blue glassmorphism with frosted gradients and glowing text.",
+  "theme": {
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png",
+      "theme_ntp_background": "ntp_background.png"
+    },
+    "colors": {
+      "frame": [15, 23, 42],
+      "frame_inactive": [10, 15, 30],
+      
+      "toolbar": [255, 255, 255, 0.1], 
+      
+      "tab_text": [255, 255, 255],
+      "tab_background_text": [148, 163, 184],
+      
+      "bookmark_text": [224, 242, 254],
+      
+      "ntp_background": [15, 23, 42],
+      "ntp_text": [224, 242, 254],
+      
+      "omnibox_background": [30, 41, 59], 
+      "omnibox_text": [255, 255, 255],
+      
+      "button_background": [0, 0, 0, 0]
+    },
+    "tints": {
+      "buttons": [0.6, 1.0, 1.0], 
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, -1],
+      "background_tab": [-1, -1, 0.4]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat",
+      "ntp_logo_alternate": 0
+    }
+  }
+}
