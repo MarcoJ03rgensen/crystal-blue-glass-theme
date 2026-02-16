@@ -21,14 +21,13 @@ def create_gradient(width, height, color1, color2, opacity=255):
         
     return base
 
-def add_glass_noise(image, intensity=10):
-    """Adds subtle noise to mimic frosted glass texture."""
+def add_glass_noise(image, intensity=10, blur_radius=0):
+    """Adds subtle noise to mimic frosted glass texture with optional blur."""
     width, height = image.size
     pixels = image.load()
-    
-    # Check if image is RGB or RGBA
     is_rgba = image.mode == 'RGBA'
     
+    # Add noise
     for y in range(height):
         for x in range(width):
             noise = random.randint(-intensity, intensity)
@@ -48,43 +47,50 @@ def add_glass_noise(image, intensity=10):
                     max(0, min(255, g + noise)),
                     max(0, min(255, b + noise))
                 )
+    
+    # Apply blur for frosted glass effect
+    if blur_radius > 0:
+        image = image.filter(ImageFilter.GaussianBlur(blur_radius))
+    
     return image
 
-print("Generating Glassmorphism assets...")
+print("Generating Enhanced Glassmorphism assets...")
 
-# 1. FRAME (Dark Deep Blue Gradient + Noise)
-# This is the window border.
-frame = create_gradient(1920, 200, (10, 25, 47, 255), (23, 37, 84, 255))
-frame = add_glass_noise(frame, intensity=15)
+# 1. FRAME (Very Dark Blue Gradient + Noise)
+# Deeper, richer blue - almost black at top
+frame = create_gradient(1920, 200, (5, 10, 20, 255), (10, 20, 40, 255))
+frame = add_glass_noise(frame, intensity=20, blur_radius=1.5)
 frame.save("frame.png")
-print("- frame.png created")
+print("- frame.png created (darker gradient)")
 
-# 2. TOOLBAR (Lighter, Semi-Transparent Blue)
-# This overlays the frame for the active tab/search bar.
-toolbar = create_gradient(1920, 200, (59, 130, 246, 180), (147, 197, 253, 150), opacity=200)
-toolbar = toolbar.filter(ImageFilter.GaussianBlur(1)) # Slight blur for softness
+# 2. TOOLBAR (Darker Semi-Transparent Blue with Heavy Blur)
+# Much darker blue with more transparency and blur for true glassmorphism
+toolbar = create_gradient(1920, 200, (15, 35, 65, 140), (25, 50, 85, 120), opacity=160)
+toolbar = toolbar.filter(ImageFilter.GaussianBlur(3))  # Heavier blur for glass effect
+toolbar = add_glass_noise(toolbar, intensity=12, blur_radius=0)
 toolbar.save("toolbar.png")
-print("- toolbar.png created")
+print("- toolbar.png created (darker glass overlay)")
 
-# 3. NTP BACKGROUND (Complex Radial Glow)
-# The wallpaper for the New Tab Page.
-ntp = Image.new('RGB', (1920, 1080), (15, 23, 42))
+# 3. NTP BACKGROUND (Subtle Dark Blue Glow)
+# Very dark base with minimal glow - sophisticated and moody
+ntp = Image.new('RGB', (1920, 1080), (8, 12, 22))
 draw = ImageDraw.Draw(ntp)
 
-# Create a "glow" in the center
+# Create a subtle "glow" in the center - much darker than before
 center_x, center_y = 960, 540
-max_radius = 1300
-for r in range(max_radius, 0, -5):
-    # Fade from dark blue to lighter cyan/blue
+max_radius = 1400
+for r in range(max_radius, 0, -8):
+    # Fade from dark to slightly lighter dark blue
     ratio = 1 - (r / max_radius)
-    red = int(15 + ratio * (50))
-    green = int(23 + ratio * (100))
-    blue = int(42 + ratio * (180))
-    draw.ellipse((center_x - r, center_y - r*0.8, center_x + r, center_y + r*0.8), fill=(red, green, blue))
+    red = int(8 + ratio * (20))  # Max 28
+    green = int(12 + ratio * (35))  # Max 47
+    blue = int(22 + ratio * (60))  # Max 82
+    draw.ellipse((center_x - r, center_y - r*0.7, center_x + r, center_y + r*0.7), fill=(red, green, blue))
 
-# Add final glass texture noise
-ntp = add_glass_noise(ntp, intensity=5)
+# Add frosted glass texture
+ntp = add_glass_noise(ntp, intensity=8, blur_radius=2)
 ntp.save("ntp_background.png")
-print("- ntp_background.png created")
+print("- ntp_background.png created (dark moody gradient)")
 
-print("Done! You can now load the theme folder in Chrome.")
+print("\nDone! Enhanced glassmorphism with darker blues.")
+print("The theme now has a sophisticated, deep blue aesthetic.")
