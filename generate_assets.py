@@ -25,16 +25,29 @@ def add_glass_noise(image, intensity=10):
     """Adds subtle noise to mimic frosted glass texture."""
     width, height = image.size
     pixels = image.load()
+    
+    # Check if image is RGB or RGBA
+    is_rgba = image.mode == 'RGBA'
+    
     for y in range(height):
         for x in range(width):
-            r, g, b, a = pixels[x, y]
             noise = random.randint(-intensity, intensity)
-            pixels[x, y] = (
-                max(0, min(255, r + noise)),
-                max(0, min(255, g + noise)),
-                max(0, min(255, b + noise)),
-                a
-            )
+            
+            if is_rgba:
+                r, g, b, a = pixels[x, y]
+                pixels[x, y] = (
+                    max(0, min(255, r + noise)),
+                    max(0, min(255, g + noise)),
+                    max(0, min(255, b + noise)),
+                    a
+                )
+            else:
+                r, g, b = pixels[x, y]
+                pixels[x, y] = (
+                    max(0, min(255, r + noise)),
+                    max(0, min(255, g + noise)),
+                    max(0, min(255, b + noise))
+                )
     return image
 
 print("Generating Glassmorphism assets...")
