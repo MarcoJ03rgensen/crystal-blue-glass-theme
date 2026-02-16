@@ -3,6 +3,7 @@
 A deep blue glassmorphism Chrome theme with frosted gradients, glowing text, and subtle noise textures.
 
 ![Theme Preview](https://img.shields.io/badge/Chrome-Theme-blue?style=for-the-badge&logo=googlechrome)
+[![Generate Assets](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml/badge.svg)](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml)
 
 ## Features
 
@@ -11,12 +12,32 @@ A deep blue glassmorphism Chrome theme with frosted gradients, glowing text, and
 - **Radial Glow Background**: Centered glow effect on new tab pages
 - **Glowing UI Elements**: Cyan-tinted buttons with high contrast white text
 - **Manifest V3**: Compatible with modern Chrome versions
+- **Automated Asset Generation**: GitHub Actions automatically generates PNG files
 
 ## Installation
 
-### Step 1: Generate Assets
+### Quick Install (Recommended)
 
-The theme requires three PNG image files. Generate them using the included Python script:
+The PNG assets are automatically generated and included in the repository:
+
+1. **Clone or download** this repository:
+   ```bash
+   git clone https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme.git
+   ```
+
+2. Open Chrome and navigate to `chrome://extensions/`
+
+3. Enable **Developer mode** (toggle in top-right corner)
+
+4. Click **Load unpacked**
+
+5. Select the `crystal-blue-glass-theme` folder
+
+6. The theme applies immediately!
+
+### Manual Asset Generation (Optional)
+
+If you want to regenerate the assets locally:
 
 ```bash
 # Install Pillow if you don't have it
@@ -31,13 +52,17 @@ This creates:
 - `toolbar.png` - Semi-transparent toolbar overlay (1920×200)
 - `ntp_background.png` - New tab page background with radial glow (1920×1080)
 
-### Step 2: Load in Chrome
+## How It Works
 
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable **Developer mode** (toggle in top-right corner)
-3. Click **Load unpacked**
-4. Select the folder containing `manifest.json` and the generated PNG files
-5. The theme will apply immediately
+### Automated Asset Generation
+
+This repository uses **GitHub Actions** to automatically generate the theme's PNG assets whenever `generate_assets.py` is modified:
+
+- **Trigger**: Any push that changes `generate_assets.py`
+- **Process**: Installs Python & Pillow → Runs generator → Commits PNGs
+- **Result**: Fresh assets always available without manual builds
+
+You can also trigger the workflow manually from the [Actions tab](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml).
 
 ## Customization
 
@@ -59,7 +84,7 @@ Modify gradient colors in `generate_assets.py`:
 frame = create_gradient(1920, 200, (R1, G1, B1, 255), (R2, G2, B2, 255))
 ```
 
-Rerun the script to regenerate the PNG files.
+Push your changes and GitHub Actions will automatically regenerate the PNGs!
 
 ## Technical Details
 
@@ -67,6 +92,7 @@ Rerun the script to regenerate the PNG files.
 - **Color Format**: RGB arrays, optional alpha channel `[R, G, B, A]`
 - **Tints**: HSL format `[hue, saturation, lightness]` for button colorization
 - **Image Requirements**: PNG format, RGBA color space
+- **CI/CD**: GitHub Actions with Python 3.11 and Pillow
 
 ## Browser Compatibility
 
