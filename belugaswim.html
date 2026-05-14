@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>New Tab</title>
+    <link rel="stylesheet" href="newtab.css">
+</head>
+
+<body>
+
+    <!-- ═══ INTRO OVERLAY ═══ -->
+    <div id="intro-overlay" class="intro-overlay">
+        <svg class="intro-beluga" viewBox="100 150 750 350" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <radialGradient id="ib" cx="40%" cy="30%" r="80%">
+                    <stop offset="0%" stop-color="#fff" />
+                    <stop offset="35%" stop-color="#f8fafc" />
+                    <stop offset="65%" stop-color="#cbd5e1" />
+                    <stop offset="90%" stop-color="#94a3b8" />
+                    <stop offset="100%" stop-color="#64748b" />
+                </radialGradient>
+                <linearGradient id="ibh" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="10%" stop-color="white" stop-opacity="0.6" />
+                    <stop offset="40%" stop-color="white" stop-opacity="0" />
+                </linearGradient>
+                <radialGradient id="img" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+                    <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0" />
+                </radialGradient>
+                <filter id="isb" x="-25%" y="-25%" width="150%" height="150%">
+                    <feGaussianBlur stdDeviation="6" />
+                </filter>
+                <filter id="iid">
+                    <feOffset dx="6" dy="12" />
+                    <feGaussianBlur stdDeviation="5" result="ob" />
+                    <feComposite operator="out" in="SourceGraphic" in2="ob" result="inv" />
+                    <feFlood flood-color="#1e293b" flood-opacity="0.3" result="c" />
+                    <feComposite operator="in" in="c" in2="inv" result="s" />
+                    <feComposite operator="over" in="s" in2="SourceGraphic" />
+                </filter>
+            </defs>
+            <path class="body-path"
+                d="M130,280 C130,200 250,160 380,180 C550,200 680,280 750,350 C780,380 770,420 730,440 C650,470 500,440 380,420 C250,400 130,360 130,280 Z"
+                fill="#000" opacity="0.18" transform="translate(20,30)" filter="url(#isb)" />
+            <path class="body-path"
+                d="M180,360 C250,390 400,410 550,400 C650,380 720,360 740,410 C700,440 500,450 350,420 C220,390 180,360 180,360 Z"
+                fill="#475569" opacity="0.4" />
+            <g filter="url(#iid)">
+                <path class="body-path" fill="url(#ib)"
+                    d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z" />
+                <path class="body-path" fill="url(#ibh)"
+                    d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z" />
+            </g>
+            <path d="M450,210 Q500,225 550,265" fill="none" stroke="#f1f5f9" stroke-width="4" stroke-linecap="round"
+                opacity="0.8" />
+            <ellipse cx="200" cy="255" rx="55" ry="45" fill="url(#img)" transform="rotate(-15,200,255)" opacity="0.9" />
+            <g transform="translate(255,305)">
+                <circle r="4.5" fill="#0f172a" />
+                <circle r="1.5" cx="1" cy="-1" fill="white" />
+            </g>
+            <path d="M140,320 C170,345 230,350 265,335" fill="none" stroke="#475569" stroke-width="3.5"
+                stroke-linecap="round" opacity="0.7" />
+            <path class="pectoral-fin"
+                d="M310,365 C290,390 285,440 315,465 C335,480 375,450 385,410 C390,380 340,360 310,365 Z" fill="#e2e8f0"
+                stroke="#94a3b8" stroke-width="1" />
+            <path class="tail-section"
+                d="M745,390 C795,330 845,340 835,380 C825,400 785,405 760,395 C775,430 825,450 805,480 C790,500 735,480 725,430 L745,390 Z"
+                fill="#94a3b8" stroke="#475569" stroke-width="1" />
+        </svg>
+        <div class="intro-title">Beluga</div>
+        <div class="intro-subtitle">Swim like a Beluguita!</div>
+    </div>
+
+    <!-- ═══ OCEAN BACKGROUND ═══ -->
+    <div class="ocean">
+        <div class="light-rays"></div>
+        <div class="caustic-layer"></div>
+
+        <!-- Primary Beluga — the centerpiece of the theme -->
+        <div class="beluga-wrapper" id="beluga-primary">
+            <div class="beluga-mover">
+                <svg class="beluga-svg" viewBox="100 150 750 350" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="belugaBody" cx="40%" cy="30%" r="80%">
+                            <stop offset="0%" stop-color="#fff" />
+                            <stop offset="35%" stop-color="#f8fafc" />
+                            <stop offset="65%" stop-color="#cbd5e1" />
+                            <stop offset="90%" stop-color="#94a3b8" />
+                            <stop offset="100%" stop-color="#64748b" />
+                        </radialGradient>
+                        <linearGradient id="backHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="10%" stop-color="white" stop-opacity="0.6" />
+                            <stop offset="40%" stop-color="white" stop-opacity="0" />
+                        </linearGradient>
+                        <radialGradient id="melonGlow" cx="50%" cy="50%" r="50%">
+                            <stop offset="0%" stop-color="#fff" stop-opacity="1" />
+                            <stop offset="100%" stop-color="#f1f5f9" stop-opacity="0" />
+                        </radialGradient>
+                        <pattern id="caustics" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                            <path d="M10 10 Q 50 0 90 10 T 170 10" fill="none" stroke="white" stroke-width="1.5"
+                                opacity="0.4" />
+                        </pattern>
+                        <filter id="softBlur" x="-25%" y="-25%" width="150%" height="150%">
+                            <feGaussianBlur stdDeviation="6" />
+                        </filter>
+                        <filter id="innerDepth">
+                            <feOffset dx="6" dy="12" />
+                            <feGaussianBlur stdDeviation="5" result="ob" />
+                            <feComposite operator="out" in="SourceGraphic" in2="ob" result="inv" />
+                            <feFlood flood-color="#1e293b" flood-opacity="0.3" result="c" />
+                            <feComposite operator="in" in="c" in2="inv" result="s" />
+                            <feComposite operator="over" in="s" in2="SourceGraphic" />
+                        </filter>
+                    </defs>
+                    <path class="body-path"
+                        d="M130,280 C130,200 250,160 380,180 C550,200 680,280 750,350 C780,380 770,420 730,440 C650,470 500,440 380,420 C250,400 130,360 130,280 Z"
+                        fill="#000" opacity="0.18" transform="translate(20,30)" filter="url(#softBlur)" />
+                    <path class="body-path"
+                        d="M180,360 C250,390 400,410 550,400 C650,380 720,360 740,410 C700,440 500,450 350,420 C220,390 180,360 180,360 Z"
+                        fill="#475569" opacity="0.4" />
+                    <g filter="url(#innerDepth)">
+                        <path class="body-path" fill="url(#belugaBody)"
+                            d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z" />
+                        <path class="body-path" fill="url(#backHighlight)"
+                            d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z" />
+                    </g>
+                    <path d="M450,210 Q500,225 550,265" fill="none" stroke="#f1f5f9" stroke-width="4"
+                        stroke-linecap="round" opacity="0.8" />
+                    <ellipse cx="200" cy="255" rx="55" ry="45" fill="url(#melonGlow)" transform="rotate(-15,200,255)"
+                        opacity="0.9" />
+                    <g transform="translate(255,305)">
+                        <circle r="4.5" fill="#0f172a" />
+                        <circle r="1.5" cx="1" cy="-1" fill="white" />
+                    </g>
+                    <path d="M140,320 C170,345 230,350 265,335" fill="none" stroke="#475569" stroke-width="3.5"
+                        stroke-linecap="round" opacity="0.7" />
+                    <path class="pectoral-fin"
+                        d="M310,365 C290,390 285,440 315,465 C335,480 375,450 385,410 C390,380 340,360 310,365 Z"
+                        fill="#e2e8f0" stroke="#94a3b8" stroke-width="1" />
+                    <path class="tail-section"
+                        d="M745,390 C795,330 845,340 835,380 C825,400 785,405 760,395 C775,430 825,450 805,480 C790,500 735,480 725,430 L745,390 Z"
+                        fill="#94a3b8" stroke="#475569" stroke-width="1" />
+                    <path class="body-path"
+                        d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z"
+                        fill="url(#caustics)" opacity="0.4" pointer-events="none" />
+                </svg>
+            </div>
+        </div>
+
+        <!-- Distant companion beluga — depth layering -->
+        <div class="beluga-wrapper beluga-distant" id="beluga-distant">
+            <div class="beluga-mover beluga-mover-distant">
+                <svg class="beluga-svg" viewBox="100 150 750 350" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <radialGradient id="belugaBody2" cx="40%" cy="30%" r="80%">
+                            <stop offset="0%" stop-color="#a0b4c8" />
+                            <stop offset="50%" stop-color="#6b839c" />
+                            <stop offset="100%" stop-color="#3b5068" />
+                        </radialGradient>
+                        <filter id="distantBlur">
+                            <feGaussianBlur stdDeviation="2.5" />
+                        </filter>
+                    </defs>
+                    <g filter="url(#distantBlur)">
+                        <path class="body-path" fill="url(#belugaBody2)"
+                            d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z" />
+                        <ellipse cx="200" cy="255" rx="55" ry="45" fill="rgba(160,180,200,0.3)"
+                            transform="rotate(-15,200,255)" />
+                        <path class="tail-section"
+                            d="M745,390 C795,330 845,340 835,380 C825,400 785,405 760,395 C775,430 825,450 805,480 C790,500 735,480 725,430 L745,390 Z"
+                            fill="#5a7590" stroke="none" />
+                        <path class="pectoral-fin"
+                            d="M310,365 C290,390 285,440 315,465 C335,480 375,450 385,410 C390,380 340,360 310,365 Z"
+                            fill="#7b95ad" stroke="none" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+        <div id="bubble-container"></div>
+    </div>
+
+    <!-- ═══ CONTENT LAYER ═══ -->
+    <div id="content-layer" class="content-layer">
+        <!-- Clock -->
+        <div class="clock-section">
+            <div id="clock-time" class="clock-time">00:00</div>
+            <div id="clock-date" class="clock-date"></div>
+        </div>
+
+        <!-- Search -->
+        <div class="search-form">
+            <form id="search-form" class="search-wrap" role="search">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+                <input id="search-input" class="search-input" type="search"
+                    placeholder="Search Google or enter a web address" autocomplete="off">
+            </form>
+        </div>
+
+        <!-- Shortcuts -->
+        <div id="shortcuts-grid" class="shortcuts-grid"></div>
+    </div>
+
+    <!-- ═══ BOTTOM BAR ═══ -->
+    <div class="bottom-bar">
+        <button id="btn-customize" class="bottom-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                <circle cx="12" cy="12" r="3" />
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+            </svg>
+            Customize
+        </button>
+        <span class="bottom-brand">
+            <svg class="brand-whale" viewBox="100 150 750 350" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M130,280 C130,190 230,165 350,175 C480,185 620,260 740,345 C770,365 780,405 745,430 C700,460 550,445 420,415 C280,395 180,390 130,330 C110,310 110,295 130,280 Z"
+                    fill="currentColor" opacity="0.6" />
+                <path
+                    d="M745,390 C795,330 845,340 835,380 C825,400 785,405 760,395 C775,430 825,450 805,480 C790,500 735,480 725,430 L745,390 Z"
+                    fill="currentColor" opacity="0.4" />
+            </svg>
+            Beluga
+        </span>
+    </div>
+
+    <!-- ═══ CUSTOMIZE MODAL ═══ -->
+    <div id="customize-modal" class="modal-backdrop">
+        <div class="modal-panel">
+            <div class="modal-title">
+                Customize Shortcuts
+                <button id="modal-close" class="modal-close">&times;</button>
+            </div>
+            <div id="shortcut-edit-list" class="shortcut-edit-list"></div>
+            <div class="modal-actions">
+                <button id="modal-add" class="modal-btn">+ Add</button>
+                <button id="modal-save" class="modal-btn primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="newtab.js"></script>
+</body>
+
+</html>

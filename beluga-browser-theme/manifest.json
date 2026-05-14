@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Beluga — Browser Theme",
+  "version": "1.1.0",
+  "description": "Deep ocean colors for Chrome's tab bar, toolbar, and bookmarks bar. Companion to the Beluga new tab extension.",
+  "theme": {
+    "images": {
+      "theme_frame": "frame.png",
+      "theme_toolbar": "toolbar.png"
+    },
+    "colors": {
+      "frame": [5, 10, 20],
+      "frame_inactive": [3, 7, 15],
+
+      "toolbar": [15, 35, 65],
+
+      "tab_text": [230, 240, 255],
+      "tab_background_text": [120, 140, 170],
+
+      "bookmark_text": [200, 220, 245],
+
+      "ntp_background": [0, 19, 40],
+      "ntp_text": [200, 220, 245],
+
+      "omnibox_background": [12, 20, 35],
+      "omnibox_text": [230, 240, 255],
+
+      "button_background": [0, 0, 0, 0]
+    },
+    "tints": {
+      "buttons": [0.55, 0.8, 0.9],
+      "frame": [-1, -1, -1],
+      "frame_inactive": [-1, -1, -1],
+      "background_tab": [-1, -1, 0.3]
+    },
+    "properties": {
+      "ntp_logo_alternate": 0
+    }
+  }
+}

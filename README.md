@@ -1,98 +1,83 @@
-# Crystal Blue Glass Theme
+# Beluga — Chrome Theme
 
-A deep blue glassmorphism Chrome theme with frosted gradients, glowing text, and subtle noise textures.
+A deep-ocean Chrome theme with an animated beluga whale swimming through your new tab page.
 
 ![Theme Preview](https://img.shields.io/badge/Chrome-Theme-blue?style=for-the-badge&logo=googlechrome)
-[![Generate Assets](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml/badge.svg)](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml)
+[![Generate Assets](https://github.com/MarcoJ03rgensen/beluga-chrome-theme/actions/workflows/generate-assets.yml/badge.svg)](https://github.com/MarcoJ03rgensen/beluga-chrome-theme/actions/workflows/generate-assets.yml)
+
+## What It Is
+
+Beluga is a **complete Chrome theme** — not just a skin, not just an overlay. The beluga whale *is* the theme. Every new tab opens into a living deep-ocean scene with:
+
+- 🐋 **Animated beluga** swimming across the viewport with organic body undulation, fin movement, and tail swing
+- 🌊 **Living ocean** with volumetric light rays, caustic patterns, and rising bubbles
+- 🫧 **Depth layering** — a distant companion beluga adds parallax and atmosphere
+- 🕐 **Clock & Search** — full new tab functionality with Google search, customizable shortcuts
+- 🎨 **Deep blue chrome** — matching frame, toolbar, and omnibox colors
 
 ## Features
 
-- **Deep Blue Gradients**: Dark slate frame with lighter blue toolbar overlays
-- **Frosted Glass Effect**: Subtle noise textures mimic real frosted glass
-- **Radial Glow Background**: Centered glow effect on new tab pages
-- **Glowing UI Elements**: Cyan-tinted buttons with high contrast white text
-- **Manifest V3**: Compatible with modern Chrome versions
-- **Automated Asset Generation**: GitHub Actions automatically generates PNG files
+- **Manifest V3** — fully compatible with modern Chrome
+- **Custom New Tab** — replaces the default new tab with the animated ocean scene
+- **Theme Colors** — deep blue frame, toolbar, and UI elements that match the ocean
+- **Intro Animation** — the beluga swims in from the left on first load
+- **Customizable Shortcuts** — add, edit, and remove your bookmarks
+- **Locale-Aware Search** — auto-detects your country for the correct Google domain
+- **Automated Asset Generation** — GitHub Actions generates frame/toolbar PNGs
 
 ## Installation
 
-### Quick Install (Recommended)
-
-The PNG assets are automatically generated and included in the repository:
-
 1. **Clone or download** this repository:
    ```bash
-   git clone https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme.git
+   git clone https://github.com/MarcoJ03rgensen/beluga-chrome-theme.git
    ```
 
-2. Open Chrome and navigate to `chrome://extensions/`
+2. Open Chrome → `chrome://extensions/`
 
-3. Enable **Developer mode** (toggle in top-right corner)
+3. Enable **Developer mode** (toggle in top-right)
 
 4. Click **Load unpacked**
 
-5. Select the `crystal-blue-glass-theme` folder
+5. Select the `beluga-chrome-theme` folder
 
-6. The theme applies immediately!
+6. The theme applies immediately — open a new tab to see the beluga swim.
 
-### Manual Asset Generation (Optional)
+## Project Structure
 
-If you want to regenerate the assets locally:
-
-```bash
-# Install Pillow if you don't have it
-pip install Pillow
-
-# Run the generator
-python generate_assets.py
+```
+beluga-chrome-theme/
+├── manifest.json          ← Unified theme + new tab extension
+├── belugaswim.html        ← The new tab page (the theme)
+├── newtab.css             ← Ocean, beluga, and UI styling
+├── newtab.js              ← Clock, search, shortcuts, bubbles
+├── frame.png              ← Browser frame gradient
+├── toolbar.png            ← Toolbar glass overlay
+├── whale.svg              ← Beluga SVG source
+├── generate_assets.py     ← Auto-generates frame/toolbar PNGs
+└── beluga-overlay/        ← Optional: companion overlay extension
 ```
 
-This creates:
-- `frame.png` - Window border gradient (1920×200)
-- `toolbar.png` - Semi-transparent toolbar overlay (1920×200)
-- `ntp_background.png` - New tab page background with radial glow (1920×1080)
+## Optional: Beluga Overlay Extension
 
-## How It Works
-
-### Automated Asset Generation
-
-This repository uses **GitHub Actions** to automatically generate the theme's PNG assets whenever `generate_assets.py` is modified:
-
-- **Trigger**: Any push that changes `generate_assets.py`
-- **Process**: Installs Python & Pillow → Runs generator → Commits PNGs
-- **Result**: Fresh assets always available without manual builds
-
-You can also trigger the workflow manually from the [Actions tab](https://github.com/MarcoJ03rgensen/crystal-blue-glass-theme/actions/workflows/generate-assets.yml).
+The `beluga-overlay/` directory contains a standalone content-script extension that makes a small beluga swim across the top of *every* webpage. Load it separately if you want the beluga everywhere, not just on new tabs.
 
 ## Customization
 
 ### Colors
+Edit RGB values in `manifest.json` under `theme.colors`.
 
-Edit RGB values in `manifest.json` under `theme.colors`:
-
-- `frame`: Main window border color
-- `tab_text`: Active tab text color
-- `bookmark_text`: Bookmark bar text color
-- `omnibox_background`: Address bar background
-
-### Gradients
-
-Modify gradient colors in `generate_assets.py`:
-
-```python
-# Example: Change frame gradient
-frame = create_gradient(1920, 200, (R1, G1, B1, 255), (R2, G2, B2, 255))
+### Ocean Gradient
+Modify the CSS variables in `newtab.css`:
+```css
+--ocean-surface: #006994;
+--ocean-top: #004d7a;
+--ocean-mid: #00334e;
+--ocean-bottom: #001328;
+--ocean-abyss: #000a14;
 ```
 
-Push your changes and GitHub Actions will automatically regenerate the PNGs!
-
-## Technical Details
-
-- **Manifest Version**: 3 (required for Chrome as of 2024)
-- **Color Format**: RGB arrays, optional alpha channel `[R, G, B, A]`
-- **Tints**: HSL format `[hue, saturation, lightness]` for button colorization
-- **Image Requirements**: PNG format, RGBA color space
-- **CI/CD**: GitHub Actions with Python 3.11 and Pillow
+### Frame/Toolbar Assets
+Modify `generate_assets.py` and push — GitHub Actions regenerates the PNGs.
 
 ## Browser Compatibility
 
@@ -103,8 +88,4 @@ Push your changes and GitHub Actions will automatically regenerate the PNGs!
 
 ## License
 
-MIT License - Feel free to modify and redistribute.
-
-## Credits
-
-Theme design inspired by modern glassmorphism UI trends and Apple's translucent interface aesthetics.
+MIT License — Feel free to modify and redistribute.

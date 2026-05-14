@@ -1,43 +1,14 @@
 {
   "manifest_version": 3,
-  "version": "1.0",
-  "name": "Crystal Blue Glass",
-  "description": "Deep blue glassmorphism with frosted gradients and glowing text.",
-  "theme": {
-    "images": {
-      "theme_frame": "frame.png",
-      "theme_toolbar": "toolbar.png",
-      "theme_ntp_background": "ntp_background.png"
-    },
-    "colors": {
-      "frame": [5, 10, 20],
-      "frame_inactive": [3, 7, 15],
-      
-      "toolbar": [15, 35, 65, 0.08],
-      
-      "tab_text": [230, 240, 255],
-      "tab_background_text": [120, 140, 170],
-      
-      "bookmark_text": [200, 220, 245],
-      
-      "ntp_background": [8, 12, 22],
-      "ntp_text": [200, 220, 245],
-      
-      "omnibox_background": [12, 20, 35],
-      "omnibox_text": [230, 240, 255],
-      
-      "button_background": [0, 0, 0, 0]
-    },
-    "tints": {
-      "buttons": [0.55, 0.8, 0.9],
-      "frame": [-1, -1, -1],
-      "frame_inactive": [-1, -1, -1],
-      "background_tab": [-1, -1, 0.3]
-    },
-    "properties": {
-      "ntp_background_alignment": "center",
-      "ntp_background_repeat": "no-repeat",
-      "ntp_logo_alternate": 0
-    }
+  "name": "Beluga",
+  "version": "1.1.0",
+  "description": "An animated deep-ocean Chrome theme with a swimming beluga whale on every new tab.",
+  "chrome_url_overrides": {
+    "newtab": "belugaswim.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
   }
 }
