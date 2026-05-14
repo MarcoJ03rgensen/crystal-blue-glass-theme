@@ -178,6 +178,84 @@ body, html {
     50%     { transform:translateY(8vh) rotate(3deg); }
 }
 
+/* ── BELUGA — MID-DISTANCE ── */
+.beluga-mid {
+    width:220px;
+    top:35%;
+    opacity:0;
+    filter: blur(0.8px) drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+    animation:swimCycleMid 63s linear infinite;
+    z-index:3;
+}
+@keyframes swimCycleMid {
+    0%   { left:-320px; transform:scaleX(-1); opacity:0; }
+    3%   { opacity:0.28; }
+    46%  { left:110vw; transform:scaleX(-1); opacity:0.28; }
+    48%  { left:110vw; opacity:0; }
+    51%  { left:110vw; transform:scaleX(1); opacity:0; }
+    54%  { opacity:0.28; }
+    96%  { left:-320px; transform:scaleX(1); opacity:0.28; }
+    98%  { left:-320px; opacity:0; }
+    100% { left:-320px; transform:scaleX(-1); opacity:0; }
+}
+.beluga-mover-mid { animation:organicSwimMid 14s ease-in-out infinite; }
+@keyframes organicSwimMid {
+    0%,100% { transform:translateY(-6vh) rotate(-4deg); }
+    50%     { transform:translateY(10vh) rotate(4deg); }
+}
+
+/* ── BELUGA — FAR ── */
+.beluga-far {
+    width:140px;
+    top:62%;
+    opacity:0;
+    filter: blur(2px) drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+    animation:swimCycleFar 82s linear infinite;
+    z-index:2;
+}
+@keyframes swimCycleFar {
+    0%   { left:110vw; transform:scaleX(1); opacity:0; }
+    3%   { opacity:0.18; }
+    47%  { left:-250px; transform:scaleX(1); opacity:0.18; }
+    49%  { left:-250px; opacity:0; }
+    52%  { left:-250px; transform:scaleX(-1); opacity:0; }
+    55%  { opacity:0.18; }
+    97%  { left:110vw; transform:scaleX(-1); opacity:0.18; }
+    99%  { left:110vw; opacity:0; }
+    100% { left:110vw; transform:scaleX(1); opacity:0; }
+}
+.beluga-mover-far { animation:organicSwimFar 18s ease-in-out infinite; }
+@keyframes organicSwimFar {
+    0%,100% { transform:translateY(-4vh) rotate(-2deg); }
+    50%     { transform:translateY(6vh) rotate(2deg); }
+}
+
+/* ── BELUGA — ABYSS (deepest) ── */
+.beluga-abyss {
+    width:100px;
+    top:72%;
+    opacity:0;
+    filter: blur(3.5px);
+    animation:swimCycleAbyss 95s linear infinite;
+    z-index:1;
+}
+@keyframes swimCycleAbyss {
+    0%   { left:-200px; transform:scaleX(-1); opacity:0; }
+    4%   { opacity:0.10; }
+    46%  { left:110vw; transform:scaleX(-1); opacity:0.10; }
+    48%  { left:110vw; opacity:0; }
+    52%  { left:110vw; transform:scaleX(1); opacity:0; }
+    56%  { opacity:0.10; }
+    96%  { left:-200px; transform:scaleX(1); opacity:0.10; }
+    98%  { left:-200px; opacity:0; }
+    100% { left:-200px; transform:scaleX(-1); opacity:0; }
+}
+.beluga-mover-abyss { animation:organicSwimAbyss 22s ease-in-out infinite; }
+@keyframes organicSwimAbyss {
+    0%,100% { transform:translateY(-3vh) rotate(-1deg); }
+    50%     { transform:translateY(4vh) rotate(1deg); }
+}
+
 /* ── SVG ANIMATIONS ── */
 .beluga-svg { width:100%; height:auto; }
 .body-path { animation:bodyUndulate 3s ease-in-out infinite; }
@@ -308,10 +386,10 @@ body, html {
 }
 .shortcut-icon {
     width:36px; height:36px;
-    border-radius:10px;
+    border-radius:6px;
     display:flex; align-items:center; justify-content:center;
     font-size:20px;
-    background:rgba(255,255,255,0.08);
+    background:none;
     overflow:hidden;
 }
 .shortcut-icon img {

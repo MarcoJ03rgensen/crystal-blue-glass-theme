@@ -14,8 +14,8 @@
     /* Extract domain and return a Google Favicon URL */
     function faviconUrl(siteUrl){
         try {
-            const domain = new URL(siteUrl).hostname;
-            return `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
+            const u = new URL(siteUrl);
+            return `https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${u.origin}&size=64`;
         } catch(e){
             return '';
         }
