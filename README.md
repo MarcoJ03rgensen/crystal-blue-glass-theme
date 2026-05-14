@@ -19,25 +19,26 @@ Beluga is a **custom new tab extension** — not just a color theme. The ocean *
 
 ## Installation
 
-Load both folders as unpacked Chrome extensions for the full experience:
+Because of a hard limitation in Google Chrome, **an extension cannot be both a Theme and a New Tab page at the same time**. If combined, Chrome will reject the theme colors. 
 
-### 1. New Tab (the ocean scene)
+To get the full seamless ocean experience, you must load this project as **two separate items** in Chrome:
 
-1. Go to `chrome://extensions/`
-2. Enable **Developer mode** (top-right toggle)
-3. Click **Load unpacked**
-4. Select the root `beluga-chrome-theme/` folder
+### Step 1: The New Tab Extension (The Ocean)
 
-Open a new tab — the beluga swims immediately.
+1. Open Chrome and go to `chrome://extensions/`
+2. Turn on **Developer mode** (toggle in the top-right corner).
+3. Click the **Load unpacked** button.
+4. Select the main `beluga-chrome-theme/` folder.
+*This replaces your new tab with the animated beluga ocean.*
+5. If you want to change the color in the top bar, load beluga-browser-theme seperatly as well.
 
-### 2. Browser Theme (tabs, toolbar, bookmarks bar)
+### Step 2: The Browser Theme (Tabs & Toolbar)
 
-1. Click **Load unpacked** again
-2. Select `beluga-chrome-theme/beluga-browser-theme/`
+1. On the same `chrome://extensions/` page, click **Load unpacked** again.
+2. This time, select the `beluga-chrome-theme/beluga-browser-theme/` folder.
+*This applies the deep ocean blue to Chrome's tab bar, toolbar, and address bar so it blends perfectly into the new tab page.*
 
-This applies the deep-ocean dark blue to Chrome's tab bar, toolbar, and address bar.
-
-> Chrome does not allow a theme and a custom new tab in the same extension — that's why they are two separate folders.
+Once both are loaded, open a new tab — the browser frame and the page will seamlessly flow together.
 
 ## File Structure
 

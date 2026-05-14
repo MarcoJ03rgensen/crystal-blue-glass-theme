@@ -5,33 +5,32 @@
   "description": "Deep ocean colors for Chrome's tab bar, toolbar, and bookmarks bar. Companion to the Beluga new tab extension.",
   "theme": {
     "images": {
-      "theme_frame": "frame.png",
-      "theme_toolbar": "toolbar.png"
+      "theme_frame": "frame.png"
     },
     "colors": {
-      "frame": [5, 10, 20],
-      "frame_inactive": [3, 7, 15],
+      "frame": [0, 33, 59],
+      "frame_inactive": [0, 20, 40],
 
-      "toolbar": [15, 35, 65],
+      "toolbar": [0, 77, 122],
 
       "tab_text": [230, 240, 255],
-      "tab_background_text": [120, 140, 170],
+      "tab_background_text": [160, 185, 215],
 
-      "bookmark_text": [200, 220, 245],
+      "bookmark_text": [230, 240, 255],
 
-      "ntp_background": [0, 19, 40],
-      "ntp_text": [200, 220, 245],
+      "ntp_background": [0, 77, 122],
+      "ntp_text": [230, 240, 255],
 
-      "omnibox_background": [12, 20, 35],
-      "omnibox_text": [230, 240, 255],
+      "omnibox_background": [0, 51, 78],
+      "omnibox_text": [255, 255, 255],
 
       "button_background": [0, 0, 0, 0]
     },
     "tints": {
-      "buttons": [0.55, 0.8, 0.9],
+      "buttons": [-1, -1, -1],
       "frame": [-1, -1, -1],
       "frame_inactive": [-1, -1, -1],
-      "background_tab": [-1, -1, 0.3]
+      "background_tab": [-1, -1, 0.55]
     },
     "properties": {
       "ntp_logo_alternate": 0
