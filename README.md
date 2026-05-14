@@ -1,91 +1,106 @@
 # Beluga — Chrome Theme
 
-A deep-ocean Chrome theme with an animated beluga whale swimming through your new tab page.
+A Chrome extension that turns every new tab into a living deep-ocean scene with a pod of beluga whales swimming in the depths.
 
 ![Theme Preview](https://img.shields.io/badge/Chrome-Theme-blue?style=for-the-badge&logo=googlechrome)
-[![Generate Assets](https://github.com/MarcoJ03rgensen/beluga-chrome-theme/actions/workflows/generate-assets.yml/badge.svg)](https://github.com/MarcoJ03rgensen/beluga-chrome-theme/actions/workflows/generate-assets.yml)
+[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 ## What It Is
 
-Beluga is a **complete Chrome theme** — not just a skin, not just an overlay. The beluga whale *is* the theme. Every new tab opens into a living deep-ocean scene with:
+Beluga is a **custom new tab extension** — not just a color theme. The ocean *is* the page. Open a new tab and watch a pod of beluga whales glide past at different distances: one up close with full detail, and four more fading into the abyss behind it.
 
-- 🐋 **Animated beluga** swimming across the viewport with organic body undulation, fin movement, and tail swing
-- 🌊 **Living ocean** with volumetric light rays, caustic patterns, and rising bubbles
-- 🫧 **Depth layering** — a distant companion beluga adds parallax and atmosphere
-- 🕐 **Clock & Search** — full new tab functionality with Google search, customizable shortcuts
-- 🎨 **Deep blue chrome** — matching frame, toolbar, and omnibox colors
-
-## Features
-
-- **Manifest V3** — fully compatible with modern Chrome
-- **Custom New Tab** — replaces the default new tab with the animated ocean scene
-- **Theme Colors** — deep blue frame, toolbar, and UI elements that match the ocean
-- **Intro Animation** — the beluga swims in from the left on first load
-- **Customizable Shortcuts** — add, edit, and remove your bookmarks
-- **Locale-Aware Search** — auto-detects your country for the correct Google domain
-- **Automated Asset Generation** — GitHub Actions generates frame/toolbar PNGs
+- 🐋 **Pod of 5 beluga whales** at different depths — each a different size, blur, speed, and opacity
+- 🌊 **Living ocean** — volumetric light rays, caustic light patterns, and rising bubbles
+- 🕐 **Clock** with live date in your locale
+- 🔍 **Google search** with automatic locale-aware domain detection
+- ⚡ **Favicon shortcuts** — real website icons, no emojis
+- ✏️ **Customize shortcuts** — add, edit, or remove with live favicon previews
+- 🎬 **Intro animation** — the beluga swims in from offscreen on first load
 
 ## Installation
 
-1. **Clone or download** this repository:
-   ```bash
-   git clone https://github.com/MarcoJ03rgensen/beluga-chrome-theme.git
-   ```
+Load both folders as unpacked Chrome extensions for the full experience:
 
-2. Open Chrome → `chrome://extensions/`
+### 1. New Tab (the ocean scene)
 
-3. Enable **Developer mode** (toggle in top-right)
+1. Go to `chrome://extensions/`
+2. Enable **Developer mode** (top-right toggle)
+3. Click **Load unpacked**
+4. Select the root `beluga-chrome-theme/` folder
 
-4. Click **Load unpacked**
+Open a new tab — the beluga swims immediately.
 
-5. Select the `beluga-chrome-theme` folder
+### 2. Browser Theme (tabs, toolbar, bookmarks bar)
 
-6. The theme applies immediately — open a new tab to see the beluga swim.
+1. Click **Load unpacked** again
+2. Select `beluga-chrome-theme/beluga-browser-theme/`
 
-## Project Structure
+This applies the deep-ocean dark blue to Chrome's tab bar, toolbar, and address bar.
+
+> Chrome does not allow a theme and a custom new tab in the same extension — that's why they are two separate folders.
+
+## File Structure
 
 ```
 beluga-chrome-theme/
-├── manifest.json          ← Unified theme + new tab extension
-├── belugaswim.html        ← The new tab page (the theme)
-├── newtab.css             ← Ocean, beluga, and UI styling
-├── newtab.js              ← Clock, search, shortcuts, bubbles
-├── frame.png              ← Browser frame gradient
-├── toolbar.png            ← Toolbar glass overlay
-├── whale.svg              ← Beluga SVG source
-├── generate_assets.py     ← Auto-generates frame/toolbar PNGs
-└── beluga-overlay/        ← Optional: companion overlay extension
+├── manifest.json              ← New tab extension manifest
+├── belugaswim.html            ← The new tab page
+├── newtab.css                 ← Ocean, beluga pod, and UI styles
+├── newtab.js                  ← Clock, search, shortcuts, bubbles
+├── icons/                     ← Extension icons (16px, 48px, 128px)
+├── README.md
+├── LICENSE
+└── beluga-browser-theme/      ← Companion browser chrome theme
+    ├── manifest.json
+    ├── frame.png              ← Tab bar gradient
+    └── toolbar.png            ← Toolbar glass overlay
 ```
 
-## Optional: Beluga Overlay Extension
+## The Beluga Pod
 
-The `beluga-overlay/` directory contains a standalone content-script extension that makes a small beluga swim across the top of *every* webpage. Load it separately if you want the beluga everywhere, not just on new tabs.
+Five whales swim at once, each at a different depth:
 
-## Customization
+| Layer | Size | Blur | Opacity | Cycle |
+|-------|------|------|---------|-------|
+| Primary | 380px | none | 85% | 55s |
+| Mid-distance | 220px | soft | 28% | 63s |
+| Distant | 180px | light | 35% | 72s |
+| Far | 140px | medium | 18% | 82s |
+| Abyss | 100px | heavy | 10% | 95s |
 
-### Colors
-Edit RGB values in `manifest.json` under `theme.colors`.
+Each swims independently with a different speed, direction, and vertical position — so the ocean always feels alive.
 
-### Ocean Gradient
-Modify the CSS variables in `newtab.css`:
+## Customizing Shortcuts
+
+Click **Customize** in the bottom-left corner of any new tab. You can:
+- Edit the name or URL of any shortcut
+- See a live favicon preview as you type a URL
+- Add new shortcuts or remove existing ones
+
+Shortcuts are saved in `localStorage` and persist across sessions.
+
+## Customizing the Ocean
+
+Modify the CSS variables at the top of `newtab.css`:
+
 ```css
 --ocean-surface: #006994;
---ocean-top: #004d7a;
---ocean-mid: #00334e;
---ocean-bottom: #001328;
---ocean-abyss: #000a14;
+--ocean-top:     #004d7a;
+--ocean-mid:     #00334e;
+--ocean-bottom:  #001328;
+--ocean-abyss:   #000a14;
 ```
-
-### Frame/Toolbar Assets
-Modify `generate_assets.py` and push — GitHub Actions regenerates the PNGs.
 
 ## Browser Compatibility
 
 - Google Chrome 88+
 - Microsoft Edge 88+
-- Brave Browser 1.20+
-- Other Chromium-based browsers with theme support
+- Brave and other Chromium-based browsers
 
 ## License
 
-MIT License — Feel free to modify and redistribute.
+This project is licensed under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+
+You are free to share and adapt this work for non-commercial purposes, provided you give appropriate credit.
+
+[View full license →](LICENSE)
